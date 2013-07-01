@@ -1,8 +1,11 @@
-#include "app.h"
+#include <iostream>
+#include <cstdio>
+#include <common/MyClass/MyClass.h>
 
 int main(int argc, char* argv[])
 {
-    App app(argc,argv);
-    return app.exec();
+    MyClass x;
+    std::string mystring = x.Hello();
+    std::cout << mystring << std::endl;
 }
 

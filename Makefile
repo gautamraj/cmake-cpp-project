@@ -3,13 +3,13 @@
 ############################################################## 
 
 SHELL := /bin/bash
-RM    := rm -rf
+RM    := /bin/rm -rf
 
 all: ./build/Makefile
-	@ $(MAKE) -C build
+	@- $(MAKE) -C build
 
 ./build/Makefile:
-	@ (cd build >/dev/null 2>&1 && cmake ..)
+	@- (cd build >/dev/null 2>&1 && cmake ..)
 
 distclean:
 	@- (cd build >/dev/null 2>&1 && cmake .. >/dev/null 2>&1)
@@ -20,6 +20,7 @@ distclean:
 	@- $(RM) ./build/CMake*
 	@- $(RM) ./build/cmake.*
 	@- $(RM) ./build/*.cmake
+	@- $(RM) ./build/*.ninja
 	@- $(RM) ./build/*.txt
 	@- $(RM) ./docs/*.html
 	@- $(RM) ./docs/*.css
@@ -28,6 +29,7 @@ distclean:
 	@- $(RM) ./docs/*.gif
 	@- $(RM) ./docs/*.tiff
 	@- $(RM) ./docs/*.php
+	@- $(RM) ./docs/*.js
 	@- $(RM) ./docs/search
 	@- $(RM) ./docs/installdox
 
