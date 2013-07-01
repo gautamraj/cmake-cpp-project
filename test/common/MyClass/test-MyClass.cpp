@@ -1,3 +1,4 @@
+#define BOOST_TEST_MODULE TEST_MYCLASS
 #include <cmath>
 #include <common/MyClass/MyClass.h>
 #include "test.h"
