@@ -1,5 +1,9 @@
-SET (my_SRCS ${CMAKE_CURRENT_LIST_DIR}/test-MyClass.cpp)
+SET (test_SRCS test-MyClass.cpp ${MAINFOLDER}/include/test.h)
+SET (test_LIBS ${Boost_LIBRARIES} MyClass)
+SET (test_BIN MyClass-unittests)
 
-# Add to the list of things to compile
-SET (test_SRCS ${test_SRCS} ${my_SRCS} PARENT_SCOPE)
-SET (test_LIBS ${test_LIBS} MyClass PARENT_SCOPE)
+ADD_EXECUTABLE(${test_BIN} ${test_SRCS})
+TARGET_LINK_LIBRARIES(${test_BIN} ${test_LIBS})
+
+# Add the test
+ADD_TEST(${test_BIN} ${MAINFOLDER}/bin/${test_BIN})
