@@ -1,16 +1,17 @@
 #define BOOST_TEST_MODULE TEST_MYCLASS
 #include <cmath>
-#include <common/MyClass/MyClass.h>
+
+#include "project/common/MyClass/MyClass.h"
 #include "test.h"
 
 float sinc(float f)
 {
     if (f==0) return 1;
-    return sin(M_PI*f) / (M_PI*f);
+    return (sin(M_PI*f) / (M_PI*f));
 }
 
 ////////////////////////////////////////
-BOOST_AUTO_TEST_SUITE(MyClass_Testing);
+BOOST_AUTO_TEST_SUITE(MyClass_Testing)
 ////////////////////////////////////////
 
 
@@ -42,5 +43,5 @@ BOOST_AUTO_TEST_CASE(HelloWorld)
 
 
 ////////////////////////////////////////
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
 ////////////////////////////////////////

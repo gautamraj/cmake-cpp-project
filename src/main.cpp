@@ -1,11 +1,11 @@
-#include <iostream>
 #include <cstdio>
-#include <common/MyClass/MyClass.h>
+#include <iostream>
+#include <string>
 
-int main(int argc, char* argv[])
-{
+#include "project/common/MyClass/MyClass.h"
+
+int main() {
     MyClass x;
     std::string mystring = x.Hello();
     std::cout << mystring << std::endl;
 }
-

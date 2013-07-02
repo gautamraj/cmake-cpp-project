@@ -1,4 +1,4 @@
-FILE (GLOB_RECURSE project_SRCS *.cpp *.cxx *.cc *.C *.c *.h *.hpp)
+SET (project_SRCS main.cpp )
 SET (project_LIBS ${Boost_LIBRARIES} MyClass )
 SET (project_BIN ${PROJECT_NAME})
 
@@ -9,3 +9,21 @@ SET_TARGET_PROPERTIES(${project_BIN} PROPERTIES VERSION "${APPLICATION_VERSION_M
 INSTALL(TARGETS ${project_BIN} DESTINATION bin)
 
 add_subdirectory(common/)
+
+# Add a syntax checker.
+FILE (GLOB_RECURSE all_SRCS *.cpp *.cxx *.cc *.C *.c *.h *.hpp)
+ADD_CUSTOM_TARGET (syntax 
+    ${MAINFOLDER}/tools/syntax/cpplint.py 
+    --verbose=3
+    --counting=detailed
+    --filter=-legal/copyright,-readability/streams
+    ${all_SRCS}
+    SOURCES ${all_SRCS})
+#ADD_CUSTOM_TARGET (syntax 
+#    ${MAINFOLDER}/tools/syntax/cpplint.py 
+#    --verbose=3
+#    --counting=detailed
+#    --filter=+readability/streams
+#    --filter=-legal/copyright
+#    ${all_SRCS}
+#    SOURCES ${all_SRCS})

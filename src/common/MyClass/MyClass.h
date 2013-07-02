@@ -1,10 +1,9 @@
-#ifndef MYCLASS_H
-#define MYCLASS_H
+#ifndef SRC_COMMON_MYCLASS_MYCLASS_H_
+#define SRC_COMMON_MYCLASS_MYCLASS_H_
 
 #include <string>
 
-class MyClass
-{
+class MyClass {
     public:
         MyClass();
         ~MyClass();
@@ -13,4 +12,4 @@ class MyClass
         std::string _message;
 };
 
-#endif
+#endif  // SRC_COMMON_MYCLASS_MYCLASS_H_
